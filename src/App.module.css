@@ -1,0 +1,33 @@
+:root {
+  --main_background_color: #373739;
+  --main_background_color_2: #565658;
+  --main_text_color: white;
+  --main_text_shadow: 1px 1px 2px aliceblue;
+  --main_background_color_2_active: #949496e3;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  margin: 0;
+  color: var(--main_text_color);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: "Roboto", sans-serif;
+  background-color: var(--main_background_color);
+}
+
+.app-body {
+  flex-grow: 1;
+}
+
+.footer {
+  flex-shrink: 0;
+  height: 75px;
+  background-color: var(--main_background_color_2);
+  box-shadow: -1px -1px 2px rgba(212, 212, 212, 0.144);
+}

@@ -1,0 +1,18 @@
+.main_box {
+  border: thick double white;
+  display: block;
+  border-radius: 10px;
+  padding: 10px;
+  height: 100px;
+  width: 377px;
+}
+
+.main_box h3 {
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.main_box p {
+  text-align: center;
+}

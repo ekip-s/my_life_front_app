@@ -1,0 +1,77 @@
+.header {
+  background: var(--main_background_color_2);
+  padding: 2rem;
+  height: 15px;
+}
+
+.header h2 {
+  margin: 0;
+  color: var(--main_text_color);
+}
+
+.content {
+  padding: 2rem;
+  background-color: var(--main_background_color);
+}
+
+.actions {
+  background-color: var(--main_background_color);
+  padding: 2rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.actions button {
+  margin-right: 10px;
+  border: none;
+  padding: 8px;
+  border-radius: 7px;
+  height: 30px;
+  background-color: var(--main_background_color_2);
+  color: var(--main_text_color);
+  text-align: justify;
+}
+
+.actions button:hover {
+  box-shadow: 1px 1px 2px aliceblue;
+}
+
+.actions button:active {
+  background-color: var(--main_background_color_2_active);
+}
+
+.content hr {
+  margin-top: 7px;
+  margin-bottom: 7px;
+}
+
+.content label {
+  color: var(--main_text_color);
+  margin-right: 7px;
+}
+
+.content input,
+.content select {
+  background-color: var(--main_background_color);
+  border: none;
+  padding: 3px;
+  outline: none;
+  border-bottom: 2px solid var(--main_background_color_2);
+  color: var(--main_text_color);
+}
+
+.node {
+  margin-bottom: 5px;
+}
+
+.content input[type="number"]::-webkit-outer-spin-button,
+.content input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+.content input[type="number"],
+.content input[type="number"]:hover,
+.content input[type="number"]:focus {
+  appearance: none;
+  -moz-appearance: textfield;
+}
