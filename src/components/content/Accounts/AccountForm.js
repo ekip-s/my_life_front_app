@@ -1,6 +1,8 @@
 import { Fragment, useState, useRef } from "react";
 import styles from "./AccountForm.module.css";
 
+const requestURL = "http://localhost:122/my_life/account/api/v1";
+
 const AccountForm = (props) => {
   const [creditType, setCreditType] = useState("");
   const [currency, setCurrency] = useState("");
@@ -11,6 +13,17 @@ const AccountForm = (props) => {
   const rateRef = useRef(0);
   const depositAmountRef = useRef(0);
   const paymentRef = useRef(0);
+  const lastPaymentRef = useRef(0);
+
+  function addNewAccount(body) {
+    fetch(requestURL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json;charset=utf-8",
+      },
+      body: JSON.stringify(body),
+    }).catch((error) => console.log(error));
+  }
 
   const selectCapitalizationHandler = (elem) => {
     setCapitalization(() => {
@@ -35,21 +48,25 @@ const AccountForm = (props) => {
     const rate = +rateRef.current.value;
     const firstPaymentDate = firstPaymentDateRef.current.value;
     const payment = +paymentRef.current.value;
-    const lastPayment = lastPaymentDateRef.current.value;
+    const lastPaymentDate = lastPaymentDateRef.current.value;
     const depositAmount = +depositAmountRef.current.value;
+    const lastPayment = +lastPaymentRef.current.value;
 
     const body = {
-      type: { creditType },
-      openingDate: { openingDate },
-      rate: { rate },
-      firstPaymentDate: { firstPaymentDate },
-      payment: { payment },
-      lastPayment: { lastPayment },
-      depositAmount: { depositAmount },
-      currency: { currency },
-      capitalization: { capitalization },
+      type: creditType,
+      openingDate: openingDate,
+      rate: rate,
+      firstPaymentDate: firstPaymentDate,
+      payment: payment,
+      lastPaymentDate: lastPaymentDate,
+      depositAmount: depositAmount,
+      currency: currency == "" ? "RUB" : currency,
+      capitalization: capitalization == "" ? null : capitalization,
+      lastPayment: lastPayment,
     };
-    console.log(body);
+
+    addNewAccount(body);
+    props.onCloseModal();
   };
   const getForm = () => {
     if (creditType == "credit") {
@@ -81,14 +98,21 @@ const AccountForm = (props) => {
             <label htmlFor="credit-last-payment-date">
               Дата последнего платежа:
             </label>
-            <input id="credit-last-payment-date" type="date" required />
+            <input
+              id="credit-last-payment-date"
+              type="date"
+              ref={lastPaymentDateRef}
+              required
+            />
           </div>
           <div className={styles.node}>
             <label htmlFor="credit-last-payment-input">Последний платеж:</label>
             <input
               id="credit-last-payment-input"
               type="number"
-              ref={lastPaymentDateRef}
+              min={0}
+              step={0.01}
+              ref={lastPaymentRef}
               required
             />
           </div>
