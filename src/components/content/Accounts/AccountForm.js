@@ -10,6 +10,7 @@ const AccountForm = (props) => {
   const openingDateRef = useRef("");
   const firstPaymentDateRef = useRef("");
   const lastPaymentDateRef = useRef("");
+  const creditNameRef = useRef("");
   const rateRef = useRef(0);
   const depositAmountRef = useRef(0);
   const paymentRef = useRef(0);
@@ -42,30 +43,48 @@ const AccountForm = (props) => {
     });
   };
 
-  const formSendHandler = (event) => {
-    event.preventDefault();
-    const openingDate = openingDateRef.current.value;
-    const rate = +rateRef.current.value;
+  const getCreditInfo = (body) => {
     const firstPaymentDate = firstPaymentDateRef.current.value;
     const payment = +paymentRef.current.value;
     const lastPaymentDate = lastPaymentDateRef.current.value;
-    const depositAmount = +depositAmountRef.current.value;
     const lastPayment = +lastPaymentRef.current.value;
 
-    const body = {
-      type: creditType,
-      openingDate: openingDate,
-      rate: rate,
+    return {
+      ...body,
       firstPaymentDate: firstPaymentDate,
       payment: payment,
       lastPaymentDate: lastPaymentDate,
-      depositAmount: depositAmount,
-      currency: currency == "" ? "RUB" : currency,
-      capitalization: capitalization == "" ? null : capitalization,
       lastPayment: lastPayment,
     };
+  };
 
-    addNewAccount(body);
+  const getDebtInfo = (body) => {
+    const depositAmount = +depositAmountRef.current.value;
+
+    return {
+      ...body,
+      depositAmount: depositAmount,
+    };
+  };
+
+  const formSendHandler = (event) => {
+    event.preventDefault();
+    const creditName = creditNameRef.current.value;
+    const openingDate = openingDateRef.current.value;
+    const rate = +rateRef.current.value;
+
+    const initBody = {
+      type: creditType,
+      accountName: creditName,
+      openingDate: openingDate,
+      rate: rate,
+      currency: currency == "" ? "RUB" : currency,
+      capitalization: capitalization == "" ? null : capitalization,
+    };
+
+    addNewAccount(
+      creditType == "credit" ? getCreditInfo(initBody) : getDebtInfo(initBody)
+    );
     props.onCloseModal();
   };
   const getForm = () => {
@@ -184,6 +203,18 @@ const AccountForm = (props) => {
           </option>
         </select>
         <hr />
+        {creditType && (
+          <div className={styles.node}>
+            <label htmlFor="credit-name-input">Название счета:</label>
+            <input
+              id="credit-name-input"
+              type="text"
+              maxlength={30}
+              required
+              ref={creditNameRef}
+            />
+          </div>
+        )}
         {creditType && (
           <div className={styles.node}>
             <label htmlFor="credit-date-input">Дата открытия:</label>
