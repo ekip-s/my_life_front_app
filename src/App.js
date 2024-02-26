@@ -3,6 +3,7 @@ import HeaderBlock from "./components/header_block/HeaderBlock";
 import React, { useState } from "react";
 import Footer from "./components/footer_block/Footer";
 import ContentMaster from "./components/content/content_master/ContentMaster";
+import AccountsChoice from "./components/content/Accounts/AccountsChoice";
 
 function App() {
   const [selectOption, setSelectOption] = useState("Кредиты и Депозиты");
@@ -19,7 +20,12 @@ function App() {
         <HeaderBlock onClick={selectOptionHandler} />
       </header>
       <main className={styles["app-body"]}>
-        <ContentMaster option={selectOption} />
+        <section className={styles["acc-info"]}>
+          <AccountsChoice />
+        </section>
+        <section className={styles["body-info"]}>
+          <ContentMaster option={selectOption} />
+        </section>
       </main>
       <footer className={styles.footer}>
         <Footer />

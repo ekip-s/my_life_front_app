@@ -2,7 +2,8 @@ import styles from "./HeaderBlock.module.css";
 
 const HeaderBlock = (props) => {
   const onChangeElemHandler = (elem) => {
-    props.onClick(elem.target.value);
+    console.log(elem.target.innerText);
+    props.onClick(elem.target.innerText);
   };
 
   return (
@@ -12,10 +13,7 @@ const HeaderBlock = (props) => {
           <h2>Life Service App</h2>
         </div>
         <div className={styles.menu}>
-          <select onChange={onChangeElemHandler}>
-            <option>Кредиты и Депозиты</option>
-            <option>Финансовый статус</option>
-          </select>
+          <button onClick={onChangeElemHandler}>Кредиты и Депозиты</button>
         </div>
       </div>
     </div>

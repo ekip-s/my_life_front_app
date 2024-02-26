@@ -1,8 +1,9 @@
 .top-info {
   display: flex;
   justify-content: space-between;
-  margin-left: 7%;
-  margin-right: 7%;
+  padding: 1px;
+  margin-left: 3%;
+  margin-right: 3%;
   margin-top: 10px;
 }
 
@@ -11,6 +12,7 @@
 }
 
 .btn-div button {
+  width: 93px;
   border: none;
   padding: 8px;
   border-radius: 7px;

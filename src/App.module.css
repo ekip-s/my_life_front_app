@@ -2,7 +2,7 @@
   --main_background_color: #373739;
   --main_background_color_2: #565658;
   --main_text_color: white;
-  --main_text_shadow: 1px 1px 2px aliceblue;
+  --main_text_shadow: 1px 1px 2px rgba(148, 148, 148, 0.747);
   --main_background_color_2_active: #949496e3;
 }
 
@@ -23,6 +23,19 @@
 
 .app-body {
   flex-grow: 1;
+  display: flex;
+}
+
+.acc-info {
+  flex: 1 0 50%;
+  margin: 5px;
+  border-radius: 15px;
+  overflow: auto;
+}
+
+.body-info {
+  flex: 1 0 45%;
+  margin: 5px;
 }
 
 .footer {

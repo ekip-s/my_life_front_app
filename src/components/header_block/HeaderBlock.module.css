@@ -27,14 +27,19 @@
   flex-direction: column;
 }
 
-.menu select {
+.menu button {
   background-color: var(--main_background_color_2);
+  padding: 6px;
   height: 60%;
   border: none;
   outline: none;
   color: var(--main_text_color);
 }
 
-.menu select:hover {
+.menu button:hover {
   border-bottom: thick double var(--main_background_color);
+}
+
+.menu button:active {
+  background-color: var(--main_background_color_2_active);
 }

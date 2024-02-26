@@ -1,0 +1,30 @@
+.node-info {
+  display: flex;
+  padding: 7px;
+  background-color: var(--main_background_color_2);
+  box-shadow: var(--main_text_shadow);
+  border-radius: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  justify-content: space-between;
+  width: 230px;
+}
+
+.infos {
+  display: flex;
+}
+
+.infos p {
+  padding: 7px;
+}
+
+.last-operation {
+  font-size: 14px;
+  background-color: var(--main_background_color_2_active);
+  padding: 2px;
+  border-radius: 10px;
+}
+
+.deposit {
+  color: rgb(2, 199, 2);
+}

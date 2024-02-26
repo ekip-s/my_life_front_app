@@ -78,17 +78,17 @@ const AccountForm = (props) => {
       accountName: creditName,
       openingDate: openingDate,
       rate: rate,
-      currency: currency == "" ? "RUB" : currency,
-      capitalization: capitalization == "" ? null : capitalization,
+      currency: currency === "" ? "RUB" : currency,
+      capitalization: capitalization === "" ? null : capitalization,
     };
 
     addNewAccount(
-      creditType == "credit" ? getCreditInfo(initBody) : getDebtInfo(initBody)
+      creditType === "credit" ? getCreditInfo(initBody) : getDebtInfo(initBody)
     );
     props.onCloseModal();
   };
   const getForm = () => {
-    if (creditType == "credit") {
+    if (creditType === "credit") {
       return (
         <Fragment>
           <div className={styles.node}>
@@ -137,7 +137,7 @@ const AccountForm = (props) => {
           </div>
         </Fragment>
       );
-    } else if (creditType == "deposit") {
+    } else if (creditType === "deposit") {
       return (
         <Fragment>
           <div className={styles.node}>
