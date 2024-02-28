@@ -1,30 +1,46 @@
 .node-info {
-  display: flex;
   padding: 7px;
   background-color: var(--main_background_color_2);
   box-shadow: var(--main_text_shadow);
   border-radius: 10px;
   margin-top: 10px;
   margin-bottom: 10px;
-  justify-content: space-between;
   width: 230px;
 }
 
-.infos {
+.node-info:hover {
+  box-shadow: 1px 1px 2px rgba(41, 41, 41, 0.863);
+}
+
+.node-info-add {
   display: flex;
+  justify-content: space-between;
 }
 
 .infos p {
-  padding: 7px;
+  padding: 3px;
+  font-size: 14px;
 }
 
 .last-operation {
   font-size: 14px;
   background-color: var(--main_background_color_2_active);
-  padding: 2px;
+  padding: 4px;
   border-radius: 10px;
+  display: inline-block;
 }
 
 .deposit {
   color: rgb(2, 199, 2);
+}
+
+.sum_info {
+  margin-left: auto;
+  text-align: right;
+}
+
+.sum_info p {
+  text-align: right;
+  margin: 2px;
+  font-size: 14px;
 }

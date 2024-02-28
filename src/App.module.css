@@ -27,14 +27,15 @@
 }
 
 .acc-info {
-  flex: 1 0 50%;
+  flex: 1 0 auto;
   margin: 5px;
+  padding: 3px;
   border-radius: 15px;
   overflow: auto;
 }
 
 .body-info {
-  flex: 1 0 45%;
+  flex: 10 0 auto;
   margin: 5px;
 }
 
